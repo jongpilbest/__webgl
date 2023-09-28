@@ -9,30 +9,17 @@ import MMain from './MMain'
 
 import About_page from './About_page'
 import Second from './Second'
+import Toilet from './Toilet'
 
 
-
+import Toilet_scroll from './Toilet_Scroll'
 /*
-function Scene2() {
-  const backgroundShaderRef2 = useRef()
- 
 
-  useFrame(({ clock }) => {
-    backgroundShaderRef2.current.uTime = clock.getElapsedTime();
-  })
+   <MMain></MMain>
+     <About_page></About_page>
+       
+       <Second></Second>
 
-  return (
-  
-   
-
-
-      <mesh position={[0, 0, 0]}>
-        <sphereGeometry  attach="geometry" args={[3, 32, 32]} />
-        <rightgrondShader attach="material" side={THREE.BackSide} ref={backgroundShaderRef2} />
-      </mesh>
-    
-  )
-}
 */
 
 
@@ -40,10 +27,8 @@ function Scene2() {
 export default function App() {
   return (
     <div className="App">
-     <MMain></MMain>
-     <About_page></About_page>
-       
-       <Second></Second>
+  
+      <Toilet_scroll></Toilet_scroll>
 
 
     </div>

@@ -167,10 +167,20 @@ const MMain =function () {
                   
 
                     <p className='back_name'>DALTILE</p>
+                    <div style={{
+                      position:'relative',
+                      width:'10vw',
+                      height:'5vh',
+                      
+                    }}>
+
+                    
                     <p 
-                   
                     className='M_p'> We make color</p>
-                  
+                   <div className="progress-area">
+  <div className="progress"></div>
+</div>
+</div>
                   </div>
        
 

@@ -10,6 +10,10 @@ import Rectangle from './assets/Rectangle.svg'
 import Fragment_Shader from './Shaders/Fragment_Shader'
 import Vertex_shader from './Shaders/Vertex_shader'
 
+import Rectangle2 from './assets/Rectangle2.svg'
+import Rectangle3 from './assets/Rectangle3.svg'
+
+
 
 function Scene2({data}) {
 
@@ -57,7 +61,7 @@ const About_page= function(){
  const third= useRef(null);
   var color=null;
   const mouse= useRef(null)
-  
+  const mouseimage= useRef(null);
   const [
     mousePosition,
     setMousePosition
@@ -157,13 +161,15 @@ className='back'>
     position:'absolute',
      zIndex:1
   }}>
-   <img 
+   <img
+   ref={mouseimage}
+   
    style={{
     width:'100%',
     height:'100%',
    
    }}
-   src={Rectangle}></img>
+   src={Rectangle2}></img>
   </div>
 
 
@@ -177,7 +183,11 @@ className='back'>
              
 
              ref={first}
-             onMouseEnter={()=>setcoolr('#880E4F')}
+             onMouseEnter={()=>{
+              setcoolr('#880E4F')
+              mouseimage.current.src= Rectangle2
+            
+            }}
             className='about_div'>
                 <p className='M_p'>Defind™ Powered by MICROBAN®</p>
              </div>
@@ -185,8 +195,8 @@ className='back'>
                     ref={second}
                    
                
-                    onMouseEnter={(e)=> {setcoolr('#5C6BC0')
-                  
+                    onMouseEnter={()=> {setcoolr('#5C6BC0')
+                    mouseimage.current.src= Rectangle3
                   }}
                   className='about_div'>
                  <p className='M_p'>REVOTILE FLOATING FLOOR CLICK TILE</p>
@@ -196,6 +206,7 @@ className='back'>
                    
                
                     onMouseEnter={(e)=> {setcoolr('#FDD835')
+                    mouseimage.current.src= Rectangle
                   
                   }}
                   className='about_div'>
