@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
-
+import { useNavigate } from "react-router-dom";
 import black from '../assets/black.svg'
 import Second_model from "./Second_model";
 const Second_pro= function({data,index}){
@@ -11,7 +11,7 @@ const Second_pro= function({data,index}){
   
  
   const [play,setplay]=useState(false);
-  
+  const navigate = useNavigate();
 
  const handleMouseOver= function(){
   ref.current.style.backgroundImage=`url(${data[0]})`
@@ -27,6 +27,7 @@ const Second_pro= function({data,index}){
   return(
     <div 
     ref={ref}
+    onClick={()=>navigate(`/${index}`)}
     onMouseEnter={handleMouseOver}
     onMouseLeave={handleMouseOut}
     

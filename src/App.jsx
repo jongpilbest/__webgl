@@ -5,7 +5,7 @@ import { Color } from 'three'
 import './App.css'
 import * as THREE from 'three'
 import MMain from './MMain'
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import About_page from './About_page'
 import Second from './Second'
@@ -26,11 +26,16 @@ import Toilet_scroll from './Toilet_Scroll'
 
 export default function App() {
   return (
-    <div className="App">
-  
-      <Toilet_scroll></Toilet_scroll>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={
+           <About_page></About_page>
+       
 
-
-    </div>
+    } />
+      <Route path="/:productId" 
+      element={<Toilet_scroll/>} />
+      </Routes>
+    </BrowserRouter>
   )
 }

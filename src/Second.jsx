@@ -21,6 +21,7 @@ const Second= function(){
  [tile6,model4,'04','KEYSTONES'],
  ]
 return(
+  
 < div  style={{
             width:'100vw',
             height:'100vh',
@@ -64,7 +65,7 @@ return(
                {
                    model!=false && model2!=false && map__.map((el,index)=>{
                   
-                  return   <Second_pro data={el} key={index}></Second_pro>
+                  return   <Second_pro data={el} index={index+1} key={index}></Second_pro>
                    })
 
                }

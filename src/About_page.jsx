@@ -3,7 +3,7 @@ import react, { useRef ,useMemo, useState, useEffect} from 'react'
 import { Color } from 'three'
 // Three
 import './App.css'
-
+import arrow from './assets/arrow.svg'
 
 import { Canvas, useFrame } from '@react-three/fiber'
 import Rectangle from './assets/Rectangle.svg'
@@ -67,6 +67,7 @@ const About_page= function(){
     setMousePosition
   ] = useState({ x: null, y: null });
 
+  const check_ref=useRef([]);
 
 
     const updateMousePosition = ev => {
@@ -75,11 +76,7 @@ const About_page= function(){
       mouse.current.style.left=mousePosition.x-(window.innerWidth/10)+"px"
       mouse.current.style.top=mousePosition.y-140+"px"
     };
-    
-  
-
-
-
+     const[check,setcheck]=useState(0);
 
    const [collor,setcoolr]=useState(null)
 
@@ -179,38 +176,68 @@ className='back'>
                
                className='MM'>
              <div 
-
-             
-
              ref={first}
+             onMouseLeave={()=>{
+              check_ref.current[0].style.visibility='hidden'
+            }}
              onMouseEnter={()=>{
-              setcoolr('#880E4F')
+              setcoolr('#880E4F');
+              check_ref.current[0].style.visibility='visible'
               mouseimage.current.src= Rectangle2
-            
             }}
             className='about_div'>
                 <p className='M_p'>Defind™ Powered by MICROBAN®</p>
+                
+                <div className='arrow_div'>
+                <img 
+                 ref={ (el) => (check_ref.current[0] = el) }
+                className='main_scroll'
+                style={{ width:'40%', height:'100%'}}
+                src={arrow}></img>
+                 
+                </div>
+
+
              </div>
                <div
                     ref={second}
-                   
-               
+                    onMouseLeave={()=>{
+                      check_ref.current[1].style.visibility='hidden'
+                    }}
                     onMouseEnter={()=> {setcoolr('#5C6BC0')
                     mouseimage.current.src= Rectangle3
+                    check_ref.current[1].style.visibility='visible'
                   }}
                   className='about_div'>
                  <p className='M_p'>REVOTILE FLOATING FLOOR CLICK TILE</p>
+                 <div className='arrow_div'>
+                <img 
+                 ref={ (el) => (check_ref.current[1] = el) }
+                className='main_scroll'
+                style={{ width:'40%', height:'100%'}}
+                src={arrow}></img>
+                 
+                </div>
                </div>
                <div
                     ref={second}
-                   
-               
+                    onMouseLeave={()=>{
+                      check_ref.current[2].style.visibility='hidden'
+                    }}
                     onMouseEnter={(e)=> {setcoolr('#FDD835')
                     mouseimage.current.src= Rectangle
-                  
+                    check_ref.current[2].style.visibility='visible'
                   }}
                   className='about_div'>
                  <p className='M_p'>REVOTILE FLOATING FLOOR CLICK TILE</p>
+                 <div className='arrow_div'>
+                <img 
+                      ref={ (el) => (check_ref.current[2] = el) }
+                className='main_scroll'
+                style={{ width:'40%', height:'100%'}}
+                src={arrow}></img>
+                 
+                </div>
                </div>
           
            
