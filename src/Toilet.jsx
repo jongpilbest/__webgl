@@ -12,7 +12,7 @@ import { Camera, DirectionalLight } from "three";
 
 import { DirectionalLightHelper, PointLightHelper } from "three";
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
-import { Html, useGLTF, SoftShadows, ScrollControls, useScroll, useTexture } from '@react-three/drei'
+import { Html, useGLTF, SoftShadows, ScrollControls, useScroll, useTexture, OrbitControls } from '@react-three/drei'
 export const Toilet=({inputRef,data})=>{
 
 

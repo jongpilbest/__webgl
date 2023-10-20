@@ -10,7 +10,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import About_page from './About_page'
 import Second from './Second'
 import Toilet from './Toilet'
-
+import Album from './Album'
 
 import Toilet_scroll from './Toilet_Scroll'
 /*
@@ -29,7 +29,7 @@ export default function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={
-           <About_page></About_page>
+           <Album></Album>
        
 
     } />
