@@ -59,7 +59,7 @@ const Fragment_Shader= `
 
     void main() {
       float n = noise(vPosition + uTime/3.);
-      vec3 color1 =  vec3(1,1,0.90);
+      vec3 color1 =  vec3(1,0.76,0.99);
       vec3 color2 =  vec3(0,0,0);
       vec3 color3 =  u_colorB;
       // vec3 color4 = vec3(0.89, 0.93, 1);
