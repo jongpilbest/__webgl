@@ -60,22 +60,10 @@ const About_page= function(){
  const second= useRef(null);
  const third= useRef(null);
   var color=null;
-  const mouse= useRef(null)
-  const mouseimage= useRef(null);
-  const [
-    mousePosition,
-    setMousePosition
-  ] = useState({ x: null, y: null });
 
   const check_ref=useRef([]);
 
 
-    const updateMousePosition = ev => {
-      setMousePosition({ x: ev.clientX, y: ev.clientY });
-          
-      mouse.current.style.left=mousePosition.x-(window.innerWidth/10)+"px"
-      mouse.current.style.top=mousePosition.y-140+"px"
-    };
      const[check,setcheck]=useState(0);
 
    const [collor,setcoolr]=useState(null)
@@ -92,48 +80,47 @@ className='back'>
             height:'100vh',
             position:'relative',
             display:'flex',
-            alignItems:'center',
-            flexDirection:'column',
+          
+            flexDirection:'row',
             position:'relative',
+          
+            justifyContent:'flex-end'
            }}>
 
 
     
-            <div style={{
-              width:'100%',
-              height:'50%', 
-            }}>
+       
 
-            <Canvas camera={{ position: [0, 0, 1] }}>
+            <Canvas camera={{ position: [0, 0, 2] }}>
      
              <Scene2 data={collor}  />
 
             </Canvas>
-
-            </div>
-            <div style={{
+           <div className='first_about_page'>
+           <div 
+           
+           style={{
+            position:'absolute',
+            bottom:'3%',
+            left:'10%'
+           }}
+           >
+             <p className='S_p'> DALTILE tile</p>
+             <p 
+              style={{
+                fontSize:'3vw'
+              }}
+             className='S_p'>ABOUT</p>
+           </div>
+           <div style={{
               width:'80%',
               height:'30%',
-        
+             
             }}>
 
            
 
-             <div 
-           
-             style={{
-              position:'absolute',
-              bottom:'3%'
-             }}
-             >
-               <p className='S_p'> DALTILE tile</p>
-               <p 
-                style={{
-                  fontSize:'3vw'
-                }}
-               className='S_p'>ABOUT</p>
-             </div>
-
+        
 
 
           
@@ -146,33 +133,17 @@ className='back'>
             style={{
               width:'100%',
               height:'40%',
-              marginTop:'5%',
-            
+              marginTop:'10%',
+              
+              marginLeft:'10%',
               display:'flex'
             }}>
-  <div 
-    ref={mouse}
-  style={{
-    width:'30%',
-    height:'30%',
-    position:'absolute',
-     zIndex:1
-  }}>
-   <img
-   ref={mouseimage}
-   
-   style={{
-    width:'100%',
-    height:'100%',
-   
-   }}
-   src={Rectangle2}></img>
-  </div>
+
 
 
 
                <div 
-                  onMouseMove={updateMousePosition}
+              
                
                className='MM'>
              <div 
@@ -181,7 +152,7 @@ className='back'>
               check_ref.current[0].style.visibility='hidden'
             }}
              onMouseEnter={()=>{
-              setcoolr('#880E4F');
+              setcoolr('#D7FFFE');
               check_ref.current[0].style.visibility='visible'
               mouseimage.current.src= Rectangle2
             }}
@@ -204,7 +175,7 @@ className='back'>
                     onMouseLeave={()=>{
                       check_ref.current[1].style.visibility='hidden'
                     }}
-                    onMouseEnter={()=> {setcoolr('#5C6BC0')
+                    onMouseEnter={()=> {setcoolr('#e6dee9')
                     mouseimage.current.src= Rectangle3
                     check_ref.current[1].style.visibility='visible'
                   }}
@@ -224,7 +195,7 @@ className='back'>
                     onMouseLeave={()=>{
                       check_ref.current[2].style.visibility='hidden'
                     }}
-                    onMouseEnter={(e)=> {setcoolr('#FDD835')
+                    onMouseEnter={(e)=> {setcoolr('#deecdd')
                     mouseimage.current.src= Rectangle
                     check_ref.current[2].style.visibility='visible'
                   }}
@@ -249,10 +220,19 @@ className='back'>
 
             </div>
 
-          
+            </div>
               
 
            </div>
+
+
+           
+          
+           
+
+         
+
+   
        </div>
        </div>
   )

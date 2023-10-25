@@ -23,9 +23,9 @@
 }
 .back_name{
 
-  font-family: 'Lora', serif;
+  font-family: 'Inter', serif;
   font-size: 3.5vw;
-color: white;
+color: black;
 margin: 5px;
 font-style: italic;
 font-weight: 100;
@@ -43,11 +43,11 @@ font-weight: 100;
 
 }
 .S_p{
-  font-family: 'Lora', serif;
+  font-family: 'Inter', serif;
   font-size: 1vw;
   font-weight: 300;
   font-style: italic;
-  color:white;
+  color:black;
   margin: 0px;
 }
 
@@ -94,7 +94,7 @@ animation: rotate_image 6s linear infinite;transform-origin: 50% 50%;
  font-size: 0.9vw;
  font-weight: 400;
  font-style: italic;
- color:white;
+ color:black;
  margin: 5px;
  position: relative;
 }
@@ -142,7 +142,7 @@ animation: rotate_image 6s linear infinite;transform-origin: 50% 50%;
   margin: 0;
 }
 .about_div{
-  border: 1px solid white;
+  border: 1px solid black;
   border-top: transparent;
   border-right: transparent;
   border-left: transparent;
@@ -220,6 +220,7 @@ animation: rotate_image 6s linear infinite;transform-origin: 50% 50%;
   width: 10%;
   position: relative;
 
+
 }
 
 .main_scroll{
@@ -248,4 +249,110 @@ animation: rotate_image 6s linear infinite;transform-origin: 50% 50%;
           opacity: 0;
          
   }
+}
+
+.div_circle{
+  width: 2.5vw;
+  height: 2.5vw;
+
+  position: absolute;
+ z-index: 2;
+ border-radius: 50%;
+ border-color: white;
+ border-style: solid;
+ border-width: 2px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.div_circle_inner{
+  width: 0.4vw;
+  height: 0.4vw;
+  background-color: white;
+  border-radius: 50%;
+
+}
+.type_div{
+  width: 13vw;
+  height: 7vw;
+  z-index: 2;
+  position: absolute;
+
+ left: 10%;
+ bottom: 5%;
+
+}
+.type_p{
+  font-family: 'Inter', sans-serif;
+  color: white;
+  font-size: 1.5vw;
+  margin-bottom: 20px;
+  font-weight: 200;
+  margin-top: 0;
+}
+.circle{
+  width: 2.7vw;
+  height: 2.7vw;
+  background-color: white;
+  border-radius: 50%;
+  border-color: white;
+ border-style: solid;
+ border-width: 2px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.type{
+  font-family: 'Inter', sans-serif;
+  color: black;
+  font-size: 0.6vw;
+}
+.circle_1{
+  width: 2.7vw;
+  height: 2.7vw;
+
+  border-radius: 50%;
+  border-color: white;
+ border-style: solid;
+ border-width: 2px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+}
+.type_1{
+  font-family: 'Inter', sans-serif;
+  color: white;
+  font-size: 0.6vw;
+}
+
+.first_about_page{
+  width: 40%;
+  height: 100%;
+  background-color: rgba( 255, 255, 255, 0.5 );
+  position: absolute;
+}
+
+.Tile_name{
+  
+  font-family: 'Inter', serif;
+  font-size: 8vw;
+color: black;
+margin: 5px;
+font-style: italic;
+font-weight: 100;
+text-align: center;
+margin: 0;
+
+
+}
+.Tile_name_1{
+  font-family: 'Inter', serif;
+  font-size: 8vw;
+  font-weight: 100;
+  text-align: center;
+  margin: 0;
+  color:transparent;
+  -webkit-text-stroke-width: 2px;
+-webkit-text-stroke-color: black;
 }

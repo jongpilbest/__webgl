@@ -4,66 +4,18 @@ import './App.css'
 import * as THREE from 'three'
 // R3F and Drei
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useLoader } from '@react-three/fiber'
+
 // Shaders
 import play from './assets/play.svg'
 import Vetor from './assets/Vector.svg'
 import circle from './assets/rotate.svg'
 
 
-
-import Vertex_shader from './Shaders/Vertex_shader'
-import Fragment_Shader from './Shaders/Fragment_Shader'
-
-import { Color } from "three";
-
-
-import BackgroundShader from './Shaders/BackgroundShader'
-import SphereShaderMaterial from './Shaders/SphereShaderMaterial'
-import RightgrondShader from './Shaders/Shaders/rightgrondShader'
+import Scene2 from './Background_Three'
 import Video from './Video'
 import { useMemo } from 'react'
 import { OrbitControls } from '@react-three/drei'
-function Scene2() {
-  const backgroundShaderRef2 = useRef(null)
- 
-  const mesh = useRef();
-  useFrame(({ clock }) => {
-    backgroundShaderRef2.current.material.uniforms.uTime.value = clock.getElapsedTime();
 
- 
-  })
- //console.log(backgroundShaderRef2.current.material.uniforms.uTime)
-
-
-  const uniforms = useMemo(
-    () => ({
-      uTime: {
-        value: 0.0,
-      },
-      u_colorB: { value: new Color("#E0FFFF") },
-
-   
-    }), []
-  );
-
-  return (<>
- 
-      <mesh 
-      ref={backgroundShaderRef2} 
-      position={[0, 0, 0]}>
-       <planeGeometry args={[8, 10, 16, 16]} />
-       <shaderMaterial
-        attach="material" 
-        fragmentShader={Fragment_Shader}
-        vertexShader={Vertex_shader}
-        uniforms={uniforms}
-      />
-
-      </mesh>
-    </>
-  )
-}
 const MMain =function () {
   const [visi,setvisi]=useState(false);
   const[texture, settexture]=useState(null);
@@ -108,6 +60,7 @@ const MMain =function () {
                     
                       display:'flex',
                       justifyContent:'center',
+                       
                     
 
                   }}> 
@@ -118,21 +71,23 @@ const MMain =function () {
                      justifyContent:'center',
                      alignItems:'center'
                   }}>
-                   <div style={{
- position:'absolute',
- width:'20px',
- height:'20px',
- right:'12.5%',
- top:'25%'
-
-
-                   }}>
-                   
-                   </div>
+              
 
 
 
-                    <div 
+         
+                
+
+                  
+
+                    <p className='back_name'>WE MAKE</p>
+                    <p
+                    style={{
+                      fontWeight:'bold'
+                    }}
+                    className='back_name'>COLOR</p>
+                
+                <div 
                     
                     onClick={()=>{
          
@@ -141,15 +96,16 @@ const MMain =function () {
                    }}
                     
                     style={{
-                      position:'absolute',
-                      width:'7%',
-                      right:'10%',
-                      top:'10%'
+                       width:'6vw',
+                       marginBottom:'1vw',
+                       display:'flex',
+                       marginLeft:'1vw',
+                      position:'relative'
                     }}>
                        <img
                     style={{
                       width:'25%',
-                      position:'absolute',
+                    position:'absolute',
                       right:'33%',
                       top:'33%'
                     }}
@@ -161,26 +117,7 @@ const MMain =function () {
                         src={circle}>
            </img>
                     </div>
-         
-                
-
-                  
-
-                    <p className='back_name'>DALTILE</p>
-                    <div style={{
-                      position:'relative',
-                      width:'10vw',
-                      height:'5vh',
-                      
-                    }}>
-
-                    
-                    <p 
-                    className='M_p'> We make color</p>
-                   <div className="progress-area">
-  <div className="progress"></div>
-</div>
-</div>
+       
                   </div>
        
 
@@ -214,7 +151,7 @@ const MMain =function () {
             height:'100%',
          
            }}>
-           <Canvas camera={{ position: [0, 0, 1] }}>
+           <Canvas camera={{ position: [0, 0, 0.5] }}>
             <OrbitControls></OrbitControls>
              <Video></Video>
        </Canvas> 

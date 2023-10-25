@@ -1,25 +1,66 @@
 import React from "react";
-import tile from './assets/tile.svg'
-import tile2 from './assets/tile2.svg'
-import tile6 from './assets/tile_6.svg'
-import tile8 from './assets/tile_8.svg'
-
-
-import { Canvas } from "@react-three/fiber";
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import react, { useMemo, useRef,useState } from 'react'
+// Three
+import './App.css'
+import * as THREE from 'three'
+// R3F and Drei
+import { Canvas, useFrame } from '@react-three/fiber'
 import { useLoader } from '@react-three/fiber'
-import Second_pro from "./Three/Second_pro";
+// Shaders
+
+import { TextureLoader } from "three";
+
+import Tile_intro from './Three/Tile_intro'
+import Fragment_Shader from './Shaders/Fragment_Shader'
+import Tile_shader from "./Three/Tile_shader";
+import { Color } from "three";
+
+import Scene2 from "./Background_Three";
+
+function GOgo() {
+  const backgroundShaderRef2 = useRef(null)
+ 
+
+  useFrame(({ clock }) => {
+    backgroundShaderRef2.current.material.uniforms.uTime.value = clock.getElapsedTime();
+   
+  })
+
+
+  const colorMap3 = useLoader(TextureLoader, `/tile_change_1.jpg`);
+
+  const uniforms = useMemo(
+    () => ({
+      uTime: {
+        value: 0.0,
+      },
+      u_colorA: { value: new Color("#FFE486") },
+      u_colorB: { value: new Color("#FEB3D9") },
+      uTexture: { value: colorMap3 }
+   
+    }), []
+  );
+
+  return (<>
+ 
+      <mesh 
+  
+      ref={backgroundShaderRef2} 
+      position={[0, 0, 0]}>
+    <planeGeometry args={[2.5, 1.2, 16, 16]}  />
+       <shaderMaterial
+        attach="material" 
+        fragmentShader={Tile_shader}
+        vertexShader={Tile_intro}
+        uniforms={uniforms}
+      />
+      </mesh>
+    </>
+  )
+}
 const Second= function(){
-  const model = useLoader(GLTFLoader, '/8.gltf');
-  const model2 = useLoader(GLTFLoader, '/7.gltf');
-  const model3 = useLoader(GLTFLoader, '/4.gltf');
-  const model4 = useLoader(GLTFLoader, '/6.gltf');
- const map__=[
- [tile8,model,'01','PERPETUO'],
- [tile,model2,'02','RAINE'],
- [tile2,model3,'03','BRYNE'],
- [tile6,model4,'04','KEYSTONES'],
- ]
+
+
 return(
   
 < div  style={{
@@ -29,47 +70,75 @@ return(
             display:'flex',
             alignItems:'center',
             flexDirection:'column',
-            backgroundColor:'black',
+            backgroundColor:'white',
             justifyContent:'center'
            
            }}>
-            <div style={{
-              width:'80%',
-              height:'80%',
-              display:'flex',
-              position:'relative'
-              
-              
-            }}>
-              
-             <div 
-             style={{
-              position:'absolute',
-              bottom:'3%'
-             }}
-             >
-               <p className='S_p'> DALTILE tile</p>
-               <p 
-                style={{
-                  fontSize:'3vw'
-                }}
-               className='S_p'>SHOWCASE</p>
-             </div>
-
-             
-
-
-                
+           
+     
           
-              
-               {
-                   model!=false && model2!=false && map__.map((el,index)=>{
-                  
-                  return   <Second_pro data={el} index={index+1} key={index}></Second_pro>
-                   })
+     <Canvas camera={{ position: [0, 0, 1] }}>
 
-               }
-            </div>
+      <Scene2 />
+
+   
+
+</Canvas>
+
+<div style={{
+  position:'absolute',
+  width:'70%',
+  height:'60%',
+  zIndex:2,
+
+  display:'flex',
+  justifyContent:'center'
+  
+
+}}>
+  <div style={{
+   zIndex:2
+  
+  
+  }}>
+     <p className="Tile_name">
+            Ceramic
+            </p>
+            <p className="Tile_name_1">
+            Tiles 
+            </p>
+  </div>
+          
+   <div style={{
+     position:'absolute',
+     width:'100%',
+     height:'100%'
+
+   }}>
+     <Canvas camera={{ position: [0, 0, 1] }}>
+
+
+<GOgo></GOgo>
+
+</Canvas>
+   </div>
+
+</div>
+<div 
+           
+           style={{
+            position:'absolute',
+            bottom:'3%',
+            left:'10%'
+           }}
+           >
+             <p className='S_p'> DALTILE tile</p>
+             <p 
+              style={{
+                fontSize:'3vw'
+              }}
+             className='S_p'>SHOWCASE</p>
+           </div>
 
 </div>
 

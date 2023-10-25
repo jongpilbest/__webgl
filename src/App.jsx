@@ -15,11 +15,11 @@ import Album from './Album'
 import Toilet_scroll from './Toilet_Scroll'
 /*
 
-   <MMain></MMain>
+   
      <About_page></About_page>
        
        <Second></Second>
-
+  <Album></Album>
 */
 
 
@@ -29,9 +29,8 @@ export default function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={
-           <Album></Album>
+         <Second></Second>
        
-
     } />
       <Route path="/:productId" 
       element={<Toilet_scroll/>} />
